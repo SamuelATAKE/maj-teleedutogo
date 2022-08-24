@@ -1,0 +1,71 @@
+.H_multipart_form {
+	display: grid;
+	grid-template-columns: repeat(6, 100%);
+	width: 100%;
+	max-width: 900px;
+	overflow-x: scroll; /*Cette propriété a été ajotée dans le js pour permettre à ceux ayant désactivé le js d'avoir accès à la seconde partie*/
+	scroll-behavior: smooth;
+}
+
+.form_section {
+	display: grid;
+	align-content: center;
+	width: 100%;
+	min-height: 50vh;
+	grid-gap: 0.5rem;
+	padding: 1rem;
+}
+
+.form_section_num {
+	font-size: 1.5em;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	background-color: #f1d0e6;
+	justify-self: center;
+}
+
+.case_input {
+	max-width: 600px;
+	margin: auto;
+}
+
+.boutons_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 1rem;
+}
+
+*.not_display {
+	display: none;
+}
+
+.bout_precedent {
+	width: fit-content;
+	height: fit-content;
+	padding: 0.5rem 1rem;
+	background-color: #62bfeb;
+	border: 1px solid blue;
+	border-radius: 0.5em;
+	cursor: pointer;
+	user-select: none;
+}
+
+.bout_suivant {
+	width: fit-content;
+	height: fit-content;
+	padding: 0.5rem 1rem;
+	background-color: #62eb62;
+	border: 1px solid green;
+	border-radius: 0.5em;
+	cursor: pointer;
+	user-select: none;
+}
+
+.bout_soumettre {
+	justify-self: center;
+}

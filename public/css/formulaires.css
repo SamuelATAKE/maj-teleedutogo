@@ -1,0 +1,109 @@
+/**
+ * CSS qui va servir pour tous les formulaires simples
+ */
+h1
+{
+	font-size: 1.5rem;
+}
+.conteneur-formulaire1
+{
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+	width: 100%;
+}
+.admin_page_body .conteneur-formulaire1 {
+	margin-bottom: 2rem;
+}
+
+form
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin:auto;
+	width: 100%;
+	max-width: 600px;
+}
+
+.case_input
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+}
+.case_input::after
+{
+	transition: border 0.5s;
+	content: "";
+	width: 100%;
+	height: 0;
+	border: 1px solid white;
+}
+.case_input:focus-within::after
+{
+	border-color: #3097ff;
+}
+label
+{
+	font-family: 'Caladea', serif;
+	font-size: 1.2rem;
+}
+input,select,textarea
+{
+	padding: 5px;
+	border: none;
+	background-color: #e6e5ea;
+	font-family: 'Lexend', sans-serif;
+	font-size: 1rem;
+	border-radius: 3px;
+	word-wrap: break-word;
+}
+input:focus-visible
+{
+	border: none;
+	outline: none;
+}
+
+.indication
+{
+	color: red;
+	margin-top: 0;
+}
+button
+{
+	background-color: #00ffb3;
+	border: 2px solid white;
+	border-radius: 5px;
+	display: block;
+	padding: 5px 10px;
+	font-family: 'Caladea', serif;
+	font-size: 1.2rem;
+	color: #111;
+	cursor: pointer;
+}
+button:hover
+{
+	border: 2px solid green;
+}
+button.non-actif
+{
+	background-color: #eee;
+	color: #888;
+	cursor: default;
+}
+button.non-actif:hover
+{
+	border: 2px solid white;
+}
+
+.other_auth_actions {
+	width : 100%;
+	padding: 1rem 5px;
+	display:flex;
+	flex-direction : row ;
+	justify-content: space-around;
+}

@@ -1,0 +1,105 @@
+/*CSS des pages d'affichage des concours et examens*/
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2rem;
+	word-wrap: break-word;
+}
+h2.acceuil
+{
+	margin:1rem;
+	text-align: center;
+}
+
+h3.acceuil
+{
+	font-size: 1.1rem;
+	margin:0.5rem;
+	word-wrap: break-word;
+}
+
+#nationaux {
+	background-color: #d7edeb;
+}
+
+.conteneur-cartes
+{
+	display: flex;
+	flex-direction:column;
+	justify-content: space-around;
+	align-items:center;
+	padding: 7px 2%;
+	margin: 10px 0;
+}
+
+.titre-decrit-plusImage
+{/*Va avec une media querie*/
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+	width:100%;
+	max-width: 800px;
+}.titre-decrit-plusImage img
+{
+	width:100%;
+}
+
+/*PARTIE CONCOURS*/
+/*PARTIE CONCOURS*/
+/*PARTIE CONCOURS*/
+
+.list_concours {
+	margin: 5px 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%,400px), 1fr));
+	grid-auto-flow:row;
+	grid-auto-rows: 1fr;
+	justify-items: center;
+	grid-gap: 5px;
+	width: 100%;
+}
+
+.list_concours .item
+{/*Pour du contenu présenté suivant un modèle de carte
+	(modifié pour la page concours)*/
+	background-color: white;
+	border:2px solid #fff;
+	border-radius:1rem;
+	width: 100%;
+	max-width: 400px;
+	text-align: center;
+}
+.list_concours .item img
+{
+	border-top-left-radius:1rem;
+	border-top-right-radius:1rem;
+	position:relative;
+	width:100%;
+	margin-bottom:1.5rem;
+}
+
+/*PARTIE EXAMENS*/
+/*PARTIE EXAMENS*/
+/*PARTIE EXAMENS*/
+
+.list_examens {
+	margin: 5px 0;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-auto-flow:row;
+	grid-auto-rows: 1fr;
+	justify-items: center;
+	grid-gap: 5px;
+	width: 100%;
+}
+.list_examens .item {
+	width: 100%;
+	max-width: 800px;
+	border-bottom: 1px solid blue;
+}
+.list_examens .item .description {
+	text-align: left;
+}

@@ -1,0 +1,36 @@
+form {
+	margin: 1rem auto;
+}
+.englobe_input-description {
+	width: 100%;
+	padding: 1rem 0;
+	margin: 2px 0;
+}
+.englobe_input-description .description {
+	padding: 3px;
+}
+.englobe_input-description textarea {
+	width: 100%;
+	resize: vertical;
+	font-size: 1.2rem;
+	padding: 3px;
+}
+
+.indication {
+	padding: 3px;
+	font-size: 0.8rem;
+}
+
+#titre_forum {
+	font-family: 'RocknRoll One', sans-serif;
+	border: none;
+	background-color: #d1f0fb;
+	min-height: 1rem;
+}
+#titre_forum:focus-visible {
+	border: none;
+	outline: none;
+}
+#question_forum:focus-visible {
+	outline:1px solid #d1f0fb;
+}

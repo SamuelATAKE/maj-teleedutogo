@@ -1,0 +1,69 @@
+@extends('layouts.little')
+
+@section('title')
+ {{$matiere->nom}} | TELEEDUTOGO
+@endsection
+
+@section('h1')
+{{$matiere->nom}} | {{$classe->nom}}
+@endsection
+
+@section('serie')
+
+@if(session('serie'))
+Série {{session('serie')->nom_serie}}
+@endif
+
+@endsection
+
+@section('page_description')
+N'arrêtez jamais d'apprendre!
+@endsection
+
+@section('content')
+	<section class="flex_column conteneur_principal">
+		<h2>Cours de / Exercice de  : {{$matiere->nom}}</h2>
+		<!-- SECTION POUR LES FICHIERS A TELECHARGER -->
+		<section class="liste_contenu flex_column">
+            @foreach ($ressources as $ressource)
+                <p class="item_contenu flex_row_wrap">
+                    <img src="{{asset('images/icon_telecharger_fichier.png')}}" alt="">
+                    <a href="{{ asset('storage/' . $ressource->nom_ressource) }}" class="nom_contenu">{{$ressource->chapitre}}</a>
+                    <span class="attributs_contenu">
+                        <a href="{{ asset('storage/' . $ressource->nom_ressource) }}"><img src="{{asset('images/check.png')}}" alt="téléchargé" class="deja_telecharge"></a>
+                        <a href=""><img src="{{asset('images/correction.png')}}" alt="" class="corrige"></a>
+                    </span>
+                </p>
+            @endforeach
+
+			{{-- <p class="item_contenu flex_row_wrap">
+				<img src="{{asset('images/icon_telecharger_fichier.png')}}" alt="">
+				<a href="" class="nom_contenu">Nom contenu</a>
+				<span class="attributs_contenu">
+					<a href="" class="deja_telecharge"><img src="{{asset('images/check.png')}}" alt="téléchargé" ></a>
+					<a href="" class="corrige"><img src="{{asset('images/correction.png')}}" alt="" ></a>
+				</span>
+			</p> --}}
+
+		</section>
+		<!-- SECTION POUR LES LIENS EXTERNES -->
+		<section class="liste_contenu flex_column">
+			<h2>Quelques liens intéressants 😉</h2>
+			{{-- <p class="item_contenu flex_row_wrap">
+				<img src="{{asset('images/icon_lien_externe.png')}}" alt="">
+				<a href="">Lien externe</a>
+			</p>
+			<p class="item_contenu flex_row_wrap">
+				<img src="{{asset('images/icon_lien_externe.png')}}" alt="">
+				<a href="">Lien externe</a>
+			</p> --}}
+		</section>
+	</section>
+@endsection
+
+@section('style')
+<link rel="stylesheet" href="{{asset('css/affich_classe.css')}}">
+@endsection
+
+@section('script')
+@endsection

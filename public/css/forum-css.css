@@ -1,0 +1,236 @@
+header {
+    border-bottom: 2px solid #803d06;
+}
+
+h1 {
+    font-size: 1.8rem;
+    word-wrap: break-word;
+}
+
+p {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+}
+
+form button {
+    background-color: #05fe80;
+    border: 2px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+form button:hover {
+    border: 2px solid #91ff00;
+}
+
+#titre_forum {
+    margin: 15px 5px;
+}
+
+#infos_forum {
+    justify-content: space-between;
+    margin: 5px;
+}
+
+#contenu_forum {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#sujet_forum {
+    background-color: #edf7ff;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+#question_forum {
+    padding: 5px 5%;
+}
+
+#form_reponse_user {
+    width: 100%;
+    padding: 5px 0;
+}
+
+#conteneur_reponse_utilisateur {
+    width: 100%;
+}
+
+#text_reponse_user {
+    width: 100%;
+    resize: none;
+    height: auto;
+    padding: 0 5px;
+    font-size: 1.4em;
+}
+
+#liste_im_explic {
+    width: 100%;
+}
+
+#message_a_repondre {
+    width: 100%;
+    max-width: 800px;
+}
+
+#conteneur_reference_reponse_utilisateur {
+    width: 80%;
+    position: relative;
+}
+
+#supprimer_reference_reponse_utilisateur {
+    padding: 3px;
+    border-radius: 3px;
+    background-color: #ff1f5d;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    z-index: 5;
+}
+
+.conteneur_image_sujet {
+    width: 100%;
+    margin: 5px;
+}
+
+.image_sujet {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.bloc_reponse {
+    background-color: #eee;
+    width: 100%;
+    padding: 5px;
+}
+
+.reponse {
+    background-color: #d9f0ff;
+    padding: 3px;
+    max-width: 100%;
+    width: 85%;
+    max-width: 800px;
+    /*Pour adaptation en cas de non suport de max*/
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #001b52;
+}
+
+.info_reponse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 4%;
+    flex-wrap: wrap;
+}
+
+.bloc_reference {
+    background-color: #cbc9ff;
+    font-size: 0.9em;
+    position: relative;
+    display: block;
+    margin: 2px auto;
+    padding: 6px;
+    border: 1px solid #111;
+    border-radius: 10px;
+    color: #333;
+    overflow: hidden;
+    height: 4rem;
+}
+
+.bloc_reference::after {
+    background-color: #cbc9ff;
+    content: "(...)";
+    font-size: 1.5em;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    z-index: 4;
+}
+
+.contenu_reference {
+    font-size: 0.9em;
+}
+
+.text_reponse {
+    /*border: 1px solid black;*/
+    margin: 2px 0;
+    padding: 4px;
+    /*border-radius: 10px;*/
+    /*background-color: #96f9ee;*/
+    font-size: 0.9em;
+}
+
+.conteneur_images_reponse {
+    width: 100%;
+}
+
+.image_reponse {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.date_reponse {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.option_message {
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bouton_option {
+    border: 1px solid #b6a50b;
+    width: 100%;
+    max-width: 60px;
+    padding: 3px;
+    border-radius: 3px;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+.icon_bouton {
+    display: block;
+    width: 95%;
+    max-width: 2rem;
+    margin: 0 auto;
+    /*Centrer*/
+}
+
+.bouton_option p {
+    font-size: 0.45em;
+    padding: 0;
+}
+
+.user_image_explic_cont {
+    width: 100%;
+    max-width: 400px;
+    margin: 4px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.apercu_image_explicative {
+    width: 100%;
+}
+
+.bouton_supprimer_image {
+    padding: 2px 5px;
+    margin: 3px 0;
+    border-radius: 3px;
+    background-color: #ff1f5d;
+    width: fit-content;
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+footer
+{
+	background-color: #6b6bff;
+	justify-self: flex-end;
+	color: #f9c5e4;
+}
+
+.contenu-footer
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.bloc-footer
+{
+	width: 100%;
+	max-width: 290px;
+	flex-grow: 1;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+footer h3
+{
+	font-size: 1.5rem;
+	padding-left: 5px;
+	word-wrap: break-word;
+}
+
+footer ul{
+	font-family: 'Lexend', sans-serif;
+}
+
+footer li{
+	padding-left: 5%;
+}
+
+footer a{
+	word-wrap: break-word;
+	color: #1fffff;
+}
+
+.nos_reseaux img
+{
+	width: 2.5rem;
+}
+.nos_reseaux a
+{
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.nos_reseaux .nom_reseau
+{
+	padding-left: 5px;
+}

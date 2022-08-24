@@ -1,0 +1,55 @@
+h1
+{
+	font-size: 2rem;
+	word-wrap: break-word;
+}
+header .serie
+{
+	color: #A90385;
+	width: 100%;
+	text-align: right;
+	padding: 0 20%;
+	font-family: 'RocknRoll One', sans-serif;
+}
+
+.conteneur_matieres
+{
+	margin: 2rem 0;
+}
+
+.conteneur_principal h2
+{
+	font-size: 1.5rem;
+	text-align: center;
+	width: 100%;
+}
+
+.liste_contenu
+{
+	width: 99%;
+	padding: 10px;
+	margin: 20px auto;
+	border: 1px solid #ffdcfb;
+	border-radius: 15px;
+}
+
+.item_contenu
+{
+	padding: 1rem;
+	width: 100%;
+	justify-content: flex-start;
+}
+
+.item_contenu img
+{
+	width: 2rem;
+	margin: 0 20px;
+}
+
+.item_contenu a:hover
+{
+	text-decoration: underline;
+}.item_contenu a:visited
+{
+	color: green;
+}

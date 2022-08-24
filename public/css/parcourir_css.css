@@ -1,0 +1,145 @@
+body.body_parcourir {
+    background-color: #F1F3F4;
+}
+
+h1 {
+    font-size: 2.5rem;
+    word-wrap: break-word;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+#conteneur_principal {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.espace_primaire {
+    background-color: #B5E5EB;
+    color: #01142C;
+}
+
+.espace_college {
+    background-color: #FEFFD4;
+    color: #01142C;
+}
+
+.espace_lycee {
+    background-color: #FFDCFB;
+    color: #01142C;
+}
+
+.content_srooler_X {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+.content_srooler_X .scrool_before,
+.content_srooler_X .scrool_after {
+    background-color: #FFF8;
+    position: absolute;
+    display: block;
+    font-family: 'Caladea', serif;
+    font-size: 2rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 5;
+    padding: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.content_srooler_X .scrool_before {
+    left: 5px;
+}
+
+.content_srooler_X .scrool_after {
+    right: 5px;
+}
+
+.scrool_before:active,
+.scrool_after:active {
+    background-color: #999;
+}
+
+.liste_series {
+    position: relative;
+    transition: all 0.4s;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.choix_serie {
+    position: relative;
+    font-size: 1.4rem;
+    padding: 10px 2.5rem;
+}
+
+.choix_serie::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    margin: 0 auto;
+}
+
+.choix_serie.actif::after {
+    background-color: #1FC7E9;
+}
+
+.bloc_classes { /* uniquement sur la page du lycée  */
+    width: 100%;
+}
+
+.titre_series {
+    padding-top: 2rem;
+}
+
+.groupe_classe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0.5rem;
+    min-width: 15rem;
+}
+
+.lien_cont_classe {
+    display: grid;
+    grid-template-rows: 6rem auto auto;
+    align-items: center;
+    padding: 3px 15px;
+    border: 2px solid #350D76;
+    border-radius: 7px;
+    margin: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 15rem;
+}
+
+.classe {
+    color: #012B60;
+    text-align: center;
+    height: fit-content;
+}
+
+@media screen and (max-width: 350px) {
+    .groupe_classe {
+        flex-wrap: wrap;
+    }
+}

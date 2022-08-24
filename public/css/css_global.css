@@ -1,0 +1,147 @@
+*,::before,::after
+{
+	text-decoration:none;/*Suppression de toutes les décoration par défaut*/
+	margin:0;/*Suppression des margins et padding par défaut*/
+	padding:0;
+	box-sizing: border-box;/*Calcul des dimentions incluant les bordures*/
+}
+
+html
+{
+	font-size:100%;/*Pour unifier les unités comme rem*/
+	scroll-behavior : smooth;/*Pour permettre un scroll smooth.*/
+	/*N'est pas pris en charge à 100%, mais pas trop dangereux.*/
+}
+
+body
+{
+	padding-top: 3rem; /*padding pour le menu*/
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+body.admin_page_body { /*Pour la page d'admin*/
+	padding: 0; 
+	display: initial;
+}
+header {
+	padding: 1rem 0;
+}
+/*----------------- GLOBAL -----------------*/
+/*--- Ici, des classes d'éléments qui seront présents partout ---*/
+h1
+{
+	font-family:'Kiwi Maru', serif;
+	text-align: center;
+	font-size:4rem;
+	word-wrap: break-word;
+}
+h2
+{
+	font-family:'New Tegomin',serif;
+	font-size:3rem;
+}
+h3
+{
+	font-size:2rem;
+	font-family: 'B612 Mono', monospace;
+}
+p
+{
+	font-family: 'Lexend', sans-serif;
+}
+a
+{
+	color: #00aaaa;
+	word-break: break-word;
+}
+a:link
+{
+	color: #00aaaa;
+}
+.description
+{/*Classe des petits commentaires qui décrivent les partie du site pour l'utilisateur*/
+	font-size:0.9rem;
+	display: block;
+	color:#525252;
+	padding: 0.7rem;
+	text-align: center;
+	font-family: 'Inter', sans-serif;
+}
+.font-more-visible
+{/*Définit un font pour les éléments qui doivent être bien visible pour l'utilisateur*/
+	font-family: 'RocknRoll One', sans-serif;
+}
+.font-serif
+{/*Défini quelques fonts sérifs*/
+	font-family: 'Caladea', serif;
+}
+.full-screen
+{
+	position:relative;
+	width:100%;
+	height:110vh;
+}
+.flex_row_wrap
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.flex_column
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+.sous_titre_pas_important
+{
+	font-size: 1.1em;
+	text-decoration: underline;
+}
+.not_display {
+	display: none !important;
+}
+
+@media screen and (max-width:1000px)
+{/*Settings général pour les écrans de moin de 1000px*/
+	.only-pc
+	{
+		display:none;
+	}
+}
+@media screen and (max-width:850px)
+{/*Settings général pour les écrans de moin de 1000px*/
+	.only-pc-850
+	{
+		display:none;
+	}
+}
+
+/*
+	----------
+	Soft scrollbar
+	----------
+*/
+/*Firefox*/
+/* Works on Firefox */
+.soft_scrool-bar {
+  scrollbar-width: thin;
+  scrollbar-color: orange inherit;
+}
+/* Works on Chrome, Edge, and Safari */
+.soft_scrool-bar::-webkit-scrollbar {
+  width: 10px;
+}
+.soft_scrool-bar::-webkit-scrollbar-track {
+  background: inherit;
+}
+.soft_scrool-bar::-webkit-scrollbar-thumb {
+  background-color: #b1d9ec99;
+  border-radius: 20px;
+  border: 1px solid black;
+}

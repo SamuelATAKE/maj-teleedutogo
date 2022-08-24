@@ -1,0 +1,106 @@
+header
+{
+	position: relative;
+	/*border-bottom: 1px solid #456;*/
+}
+
+h1
+{
+	margin: 10px auto 4rem auto;
+}
+
+#info_compte
+{
+	background-color: #eff7e3;
+}
+
+.background_simul
+{
+	width: 100%;
+	height: 100vh;
+	max-height: 600px;
+	overflow: hidden;
+}
+
+.image_back
+{
+	height: 50%;
+}.image_back:nth-child(1)
+{
+	margin-right: auto;
+}.image_back:nth-child(2)
+{
+	margin-left: auto;
+}
+
+.header_text
+{
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 100%;
+	color: #fa00d0;
+}.header_text p,.header_text h1
+{
+	width: 99%;
+	text-align: center;
+	text-shadow: 0 0 10px #FFFFFFAA;
+}.header_text p
+{
+	background-color: #FFFFFFAA;
+	color: #07133e;
+}
+
+.section_principale>section
+{
+	width: 100%; max-width: 900px;
+	margin: 2rem 0;
+}
+
+.bloc_titre_section
+{
+	width: 100%;
+	margin: 1rem 0;
+}
+
+.bloc_titre_section h2
+{
+	font-size: 2rem;
+	text-align: center;
+}
+
+.liste_info
+{
+	width: 95%;
+	max-width: 600px;
+}
+
+.bloc_info_unitaire
+{
+	margin: 1rem 0;
+	padding-left: 10px;
+	width: 100%;
+}
+.bloc_info_unitaire .titre_info
+{
+	font-size: 1rem;
+	color: #928caa;
+	font-weight: normal;
+}
+.bloc_info_unitaire .valeur_info
+{
+	font-size: 1.1rem;
+	color: #080fe4;
+	font-weight: bold;
+	margin: 0 0 10px 0;
+	border-bottom: 1px solid #465;
+}
+.bloc_info_unitaire .description
+{
+	font-size: 0.9rem;
+	text-align: left;
+	padding:0;
+}
+
+

@@ -1,0 +1,145 @@
+#nav_logo_place, #nav_logo_place * {
+    max-height: 3rem;
+}
+#nav_logo_place {
+    justify-self: left;
+}
+
+#links_place {
+    justify-self: right;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-gap:1rem;
+    height: 100%;
+    max-height: 3rem;
+}
+
+.top_bar {
+    background-color: #fff;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3rem;
+    display: grid;
+    justify-content: stretch;
+    padding:0 0.5rem;
+    border-bottom:1px solid #011c2f;
+}
+
+.top_bar_content {
+    margin:auto;
+    height: 100%;
+    width:100%;
+    max-height: 3rem;
+    max-width:1500px;
+    display: grid;
+    grid-template-columns:repeat(2, auto);
+    justify-content: stretch;
+}
+.top_bar_content a {
+    display: block;
+}
+
+.quick_links {
+    height: inherit;
+    max-height: 3rem;
+}
+
+.topbar_links {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-items: center;
+    align-items:center;
+    text-align: center;
+    height: 100%;
+    max-height: 3rem;
+}
+.topbar_links li {
+    width:100%;
+    height: fit-content;
+    padding: 5px 10px;
+}
+.topbar_links a {
+    display: block;
+    color:#06089b;
+    font-size: 1.3em;
+    font-family: 'Kiwi Maru';
+    font-weight: normal;
+}
+
+.bouton_affich_menu {
+    cursor: pointer;
+    background-color: white;
+    color:black;
+    border-radius:5px;
+    font-size: 1.1em;
+    padding: 0.3em 1em;
+    max-height:3rem;
+    transition: all 0.5s;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.bouton_affich_menu.active {
+    background-color: #011c2f;
+    color: white;
+}
+
+.sidebar {
+    z-index: 8888;
+    position: fixed;
+    top: 3rem;
+    right: 0;
+    height: 100vh; 
+    max-height: 800px;/*Pour éviter un menu exessivement long*/
+    background-color: #011c2f;
+    transition: all 0.5s ease;
+    overflow-y: scroll;
+    padding-bottom: 1rem;/*Pour avoir de l'espace avant la bordure*/
+    transform: translate(100%,0);
+}.sidebar.active {
+    transform: translate(0,0);
+}
+
+.sidebar .groupe_liens {
+    padding: 5px 0;
+    width: 100%;
+}
+
+.sidebar .titre_groupe {
+    text-align: left;
+    width: 100%;
+    color: #737373;
+    padding: 5px 5%;
+}
+
+.sidebar .liste_liens {
+    width: 100%;
+}
+
+.sidebar li {
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar .lien {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.5em;
+    width: 100%;
+    padding: 0 0 0 2rem;
+    transition: all 0.4s ease;
+    font-family: 'Lexend', sans-serif;
+}
+
+.sidebar .lien:hover {
+    color: rgb(9, 9, 20);
+    background-color: #ffcfef;
+}
+
+.sidebar .link_name {
+    padding: 10px;
+}

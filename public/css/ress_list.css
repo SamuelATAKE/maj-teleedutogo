@@ -1,0 +1,50 @@
+h1 {
+    font-size:3rem;
+}
+
+.ress_table {
+    border-collapse: collapse;
+}
+
+.ress_table tr{
+    border-top: 1px solid #181824;
+    border-bottom: 1px solid #181824;
+}
+
+.ress_table th {
+    text-align: center;
+    padding: 0.6rem 0.4rem;
+}
+
+.ress_table td {
+    padding: 0.4rem 0.4rem;
+}
+.ress_table tbody td {
+    padding: 0.4rem 0.4rem;
+}
+
+.ress_table td.actions_cel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.ress_table td.actions_cel  button{
+    background: transparent;
+    border-radius:3rem;
+    width:fit-content;
+    height:fit-content;
+}
+.ress_table td.actions_cel .del_button_form button{
+    border:1px solid red;
+}
+.ress_table td.actions_cel .edit_button_form button{
+    border:1px solid blue;
+}
+.ress_table td.actions_cel img{
+    width:30px;
+    height:30px;
+    object-fit: contain;
+}

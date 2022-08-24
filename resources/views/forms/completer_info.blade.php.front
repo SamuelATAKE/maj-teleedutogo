@@ -1,0 +1,170 @@
+@extends('layouts.little')
+
+@section('title')
+Compléter mes informations | TELEEDUTOGO
+@endsection
+
+@section('h1')
+TELEEDUTOGO : Complétion des informations
+@endsection
+
+@section('page_description')
+Complètez vos informations pour profiter au maximum des offres du site.
+@endsection
+
+@section('content')
+
+<script>
+    let classes_primaire = [
+        "cp1", "cp2", "ce1", "ce2", "cm1", "cm2" 
+    ];
+    let classes_college = [
+        "sixieme", "cinqieme", "quatrieme", "troixieme"
+    ];
+    let classes_lycee = [
+        "seconde-CD", "seconde-A4", "seconde-F",
+        "premiere-C", "premiere-D", "premiere-A4", "premiere-F",
+        "terminal-C", "terminal-D", "terminal-A4", "terminal-F",
+    ];
+    let matieres = [
+        "mathematiques", "sciences-physique", "francais", "anglais",
+    ];
+</script>
+
+<div class="conteneur-formulaire1">
+    <form method="POST" action="" class="H_multipart_form">
+        <!-- Le role -->
+        <div id="part_role" class="form_section" >
+            <p class="form_section_num">1</p>
+            <div class="case_input">
+                <label for='statut'>Statut</label>
+                <select name="role" id="statut" value="">
+                    <option value="eleve" >Elève</option>
+                    <option value="enseignant" >Enseignant</option>
+                    <option value="parent" >Parent</option>
+                </select>
+            </div>
+            <div class="boutons_container">
+                <p class="bout_suivant">Suivant</p>
+            </div>
+        </div>
+        <!-- Cycle -->
+        <div id="part_cycle" class="form_section" >
+            <p class="form_section_num">2</p>
+            <div class="case_input">
+                <label for='cycle'>Cycle</label>
+                <select name="cycle" id="cycle" value="">
+                    <option value="1" >Primaire</option>
+                    <option value="2" >Collège</option>
+                    <option value="3" >Lycée</option>
+                </select>
+            </div>
+            <div class="boutons_container">
+                <p class="bout_precedent">precedent</p>
+                <p class="bout_suivant">Suivant</p>
+            </div>
+        </div>
+        <!-- Classes -->
+        <div id="part_classes" class="form_section" >
+            <p class="form_section_num">3</p>
+            <div class="case_input">
+                <label for='classe1'>Classe enseignée 1</label>
+                <select name="classe1" id="classe1" value="">
+                    <option value="cp1" >CP1</option>
+                    
+                </select>
+            </div>
+            <div class="case_input classe_enseignant">
+                <label for='classe2'>Classe enseignée 2</label>
+                <select name="classe2" id="classe2" value="">
+                    <option value="cp1" >CP1</option>
+                    
+                </select>
+            </div>
+            <div class="case_input classe_enseignant">
+                <label for='classe3'>Classe enseignée 3</label>
+                <select name="classe3" id="classe3" value="">
+                    <option value="cp1" >CP1</option>
+                    
+                </select>
+            </div>
+            <div class="case_input classe_enseignant">
+                <label for='classe4'>Classe enseignée 4</label>
+                <select name="classe4" id="classe4" value="">
+                    <option value="cp1" >CP1</option>
+                    
+                </select>
+            </div>
+            <div class="boutons_container">
+                <p class="bout_precedent">precedent</p>
+                <p class="bout_suivant">Suivant</p>
+            </div>
+        </div>
+        <!-- Matières -->
+        <div id="part_matiere" class="form_section" >
+            <p class="form_section_num">4</p>
+            <div class="case_input">
+                <label for='matiere1'>Matière enseignée 1</label>
+                <!-- Les matières seront remplis uniquement par les enseigants du collège ou lycée -->
+                <select name="matiere1" id="matiere1" value="">
+                    <option value="math" >math</option>
+                    
+                </select>
+            </div>
+            <div class="case_input">
+                <label for='matiere2'>Matière enseignée 2</label>
+                <select name="matiere2" id="matiere2" value="">
+                    <option value="math" >math</option>
+                    
+                </select>
+            </div>
+            <div class="case_input">
+                <label for='matiere3'>Matière enseignée 3</label>
+                <select name="matiere3" id="matiere3" value="">
+                    <option value="math" >math</option>
+                    
+                </select>
+            </div>
+            <div class="boutons_container">
+                <p class="bout_precedent">precedent</p>
+                <p class="bout_suivant">Suivant</p>
+            </div>
+        </div>
+        <!-- Etablissement scolaire -->
+        <div id="part_etablissement" class="form_section" >
+            <p class="form_section_num">5</p>
+            <div class="case_input">
+                <label for='etablissement'>Etablissement Scolaire [Facultatif]</label>
+                <input type="text" id="etablissement" name="etablissement" placeholder="Entrez le nom de votre établissement scolaire.">
+            </div>
+            <div class="boutons_container">
+                <p class="bout_precedent">precedent</p>
+                <p class="bout_suivant">Suivant</p>
+            </div>
+        </div>
+        <!-- Regions -->
+        <div id="part_region" class="form_section" >
+            <p class="form_section_num">6</p>
+            <div class="case_input">
+                <label for='region'>Région [Facultatif]</label>
+                <select name="region" id="region">
+                    <option value="maritime">Maritime</option>
+                </select>
+            </div>
+            <div class="boutons_container">
+                <p class="bout_precedent">precedent</p>
+                <button type="submit" class="bout_soumettre">Soumettre</button>
+            </div>
+        </div>
+    </form>
+</div>
+@endsection
+
+@section('style')
+<link rel="stylesheet" href="{{asset('css/formulaires.css')}}">
+<link rel="stylesheet" href="{{asset('css/compl_infos.css')}}">
+@endsection
+
+@section('script')
+<script src="{{asset('js/compl_infos.js')}}"></script>
+@endsection

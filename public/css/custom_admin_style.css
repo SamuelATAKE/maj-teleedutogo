@@ -1,0 +1,36 @@
+.custom-dot-indicator {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.nav-link-dot-indicator {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.inline-dot-indicator {
+    display: inline-block;
+    position: relative;
+    -webkit-transform: translate(200%, -100%);
+    transform: translate(200%, -100%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.content-wrapper {
+    background-color: #ffffff;
+}
