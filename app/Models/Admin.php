@@ -8,25 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
-    public function role() {
-        return $this->hasOne(Role::class);
-    }
-
-    public function repetitorat() {
-        return $this->hasOne(Repetitorat::class);
-    }
-
-    public function contributions() { // Renomé pour plus de clarté
-        return $this->hasMany(User::class);
-    }
-
-    public function telechargements() {
-        return $this->hasMany(Telechargement::class);
-    }
 
     /**
      * The attributes that are mass assignable.

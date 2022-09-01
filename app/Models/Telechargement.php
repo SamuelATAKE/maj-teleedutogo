@@ -13,7 +13,7 @@ class Telechargement extends Model
         return $this->belongsTo(Ressource::class);
     }
 
-    public function utilisateur() {
-        return $this->belongsTo(Utilisateur::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

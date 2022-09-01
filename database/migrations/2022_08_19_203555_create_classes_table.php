@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->unsignedBigInteger('cycle_id');
-            $table->unsignedBigInteger('serie_id')->nullable();
+            $table->unsignedBigInteger('serie_id');
             $table->longText('description')->nullable();
             $table->timestamps();
 
-            $table->foreign('cycle_id')->references('id')->on('cycles');
-            $table->foreign('serie_id')->references('id')->on('series');
+            // $table->foreign('cycle_id')->references('id')->on('cycles');
+            // $table->foreign('serie_id')->references('id')->on('series');
         });
     }
 

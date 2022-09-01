@@ -10,7 +10,7 @@ class Ressource extends Model
     use HasFactory;
 
     public function contributeur() {
-        return $this->belongsTo(Utilisateur::class);
+        return $this->belongsTo(User::class);
     }
 
     public function matiere() {

@@ -9,16 +9,12 @@ class Repetitorat extends Model
 {
     use HasFactory;
 
-    public function utilisateur() {
-        return $this->belongsTo(Utilisateur::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
-    public function contributeur() {
-        return $this->belongsTo(Utilisateur::class);
-    }
-
-    public function matiere() {
-        return $this->belongsTo(Matiere::class);
+    public function matieres() {
+        return $this->hasMany(Matiere::class);
     }
 
     public function telechargements() {

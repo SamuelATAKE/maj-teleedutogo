@@ -6,8 +6,9 @@ use App\Models\Classe;
 use App\Models\Cycle;
 use App\Models\Matiere;
 use App\Models\Role;
-use App\Models\Utilisateur;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -56,17 +57,17 @@ class RoleController extends Controller
         $role->etablissement_scolaire = request('etablissement');
         $role->matiere_id = request('matiere_id');
         $role->region = request('region');
-        $role->utilisateur_id = session('user')->id;
+        $role->user_id = Auth::guard('web')->user();
         // dd($role);
         $role->save();
 
-        $utilisateur = Utilisateur::where('id', session('user')->id)->first();
+        $user = User::where('id', Auth::guard('web')->user()->id)->first();
 
-        if($utilisateur){
-            $role_id = Role::where('utilisateur_id', session('user')->id)->first()->id;
-            $utilisateur->role_id = $role_id;
+        if($user){
+            $role_id = Role::where('utilisateur_id', Auth::guard('web')->user()->id)->first()->id;
+            $user->role_id = $role_id;
             // dd($utilisateur);
-            $utilisateur->save();
+            $user->save();
 
             return redirect(route('home'));
         }else{

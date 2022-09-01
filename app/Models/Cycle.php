@@ -9,11 +9,8 @@ class Cycle extends Model
 {
     use HasFactory;
 
-    public function cycles() {
+    public function classes() {
         return $this->hasMany(Classe::class);
     }
 
-    public function matieres() {
-        return $this->hasMany(Matiere::class);
-    }
 }

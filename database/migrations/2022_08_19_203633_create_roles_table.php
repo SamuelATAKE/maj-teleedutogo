@@ -16,15 +16,13 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('nom_role');
-            $table->unsignedBigInteger('utilisateur_id')->nullable();
-            $table->unsignedBigInteger('classe_id')->nullable();
-            $table->unsignedBigInteger('matiere_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->longText('etablissement_scolaire')->nullable();
             $table->longText('region');
             $table->timestamps();
 
-            $table->foreign('classe_id')->references('id')->on('classes');
-            $table->foreign('matiere_id')->references('id')->on('matieres');
+            // $table->foreign('classe_id')->references('id')->on('classes');
+            // $table->foreign('matiere_id')->references('id')->on('matieres');
         });
     }
 

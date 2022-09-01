@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('telechargements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ressource_id');
-            $table->unsignedBigInteger('utilisateur_id');
+            $table->unsignedBigInteger('user_id');
             $table->date('date_telechargement');
             $table->timestamps();
 
-            $table->foreign('ressource_id')->references('id')->on('ressources');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            // $table->foreign('ressource_id')->references('id')->on('ressources');
+            // $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

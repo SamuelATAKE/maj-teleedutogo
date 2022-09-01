@@ -13,8 +13,8 @@ class Matiere extends Model
         return $this->belongsTo(Classe::class);
     }
 
-    public function cycle() {
-        return $this->belongsTo(Cycle::class);
+    public function repetitorat() {
+        return $this->belongsTo(Repetitorat::class);
     }
 
     public function ressources() {

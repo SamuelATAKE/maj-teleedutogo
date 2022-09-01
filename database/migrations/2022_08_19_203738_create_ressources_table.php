@@ -26,8 +26,8 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->timestamps();
 
-            $table->foreign('contributeur_id')->references('id')->on('utilisateurs');
-            $table->foreign('matiere_id')->references('id')->on('matieres');
+            // $table->foreign('contributeur_id')->references('id')->on('users');
+            // $table->foreign('matiere_id')->references('id')->on('matieres');
         });
     }
 
