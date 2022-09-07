@@ -7,7 +7,7 @@ use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\RessourceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SerieController;
-use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,12 +31,12 @@ Route::middleware(['guest:web'])->group(function() {
     Route::get('/connexion', function () {
         return view('auth.login');
     })->name('connexion');
-    Route::post('/login', [UtilisateurController::class, 'login'])->name('login');
+    Route::post('/login', [UserController::class, 'login'])->name('login');
 
     Route::get('/inscription', function () {
         return view('auth.register');
     })->name('inscription');
-    Route::post('/register', [UtilisateurController::class, 'store'])->name('register');
+    Route::post('/register', [UserController::class, 'store'])->name('register');
 
 });
 
@@ -44,7 +44,7 @@ Route::middleware(['guest:web'])->group(function() {
 
 Route::middleware(['guest:admin'])->group(function() {
     Route::get('/connexion-admin', [AdminController::class, 'create'])->name('admin.login');
-    Route::post('/connecting-admin', [UtilisateurController::class, 'loginadmin'])->name('login.admin');
+    Route::post('/connecting-admin', [AdminController::class, 'login'])->name('login.admin');
 });
 
 

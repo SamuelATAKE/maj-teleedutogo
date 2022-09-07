@@ -16,19 +16,19 @@ Route::middleware(['auth:admin'])->group(function() {
     })->name('admin.index');
 
     // Admin - gestion ressources
-    Route::get('/admin/ressources/ajouter', [RessourceController::class, 'create'])->name('ressources.add');
+    Route::get('/admin/ressources/nouveau', [RessourceController::class, 'create'])->name('ressources.add');
 
     Route::get('/admin/ressources', [RessourceController::class, 'index'])->name('ressources.index');
 
-    Route::post('/ressource/add', [RessourceController::class, 'store'])->name('ressource.add');
+    Route::post('/admin/ressource/store', [RessourceController::class, 'store'])->name('ressource.add');
     // Séries
     Route::get('/admin/series', [SerieController::class, 'index'])->name('admin.series');
 
-    Route::get('/admin/series/ajouter', function(){
+    Route::get('/admin/series/nouveau', function() {
         return view('grades.ajouter_serie');
     })->name('serie.create');
 
-    Route::post('/serie/add', [SerieController::class, 'store'])->name('serie.add');
+    Route::post('/admin/serie/store', [SerieController::class, 'store'])->name('serie.add');
 
     // Cycles
     Route::get('/admin/cycles', [CycleController::class, 'index'])->name('admin.cycles');

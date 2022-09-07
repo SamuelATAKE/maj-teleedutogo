@@ -6,7 +6,7 @@ use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\RessourceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SerieController;
-use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,9 +26,9 @@ Route::get('/lycee', function () {
     return view('parcourir.lycee');
 })->name('lycee');
 
-Route::get('/{cycle}/{id}', [ClasseController::class, 'getMatieres'])->name('classe');
+Route::get('parcourir/{cycle}/{id}', [ClasseController::class, 'getMatieres'])->name('classe');
 
-Route::get('/{cycle}/{classe}/{id}', [MatiereController::class, 'getRessources'])->name('matiere');
+Route::get('parcourir/{cycle}/{classe}/{id}', [MatiereController::class, 'getRessources'])->name('matiere');
 
 Route::get('/examens', function () {
     return view('parcourir.examens');
@@ -50,7 +50,7 @@ Route::middleware(['auth:web'])->group(function() {
         return view('forms.contribuer');
     })->name('contribuer');
 
-    Route::post('/checkemail', [UtilisateurController::class, 'emailcheck'])->name('checkemail');
+    Route::post('/checkemail', [UserController::class, 'emailcheck'])->name('checkemail');
 
     Route::get('/recovering-email', function () {
         return view('auth.email');
@@ -59,11 +59,11 @@ Route::middleware(['auth:web'])->group(function() {
     Route::get('/recovering-password', function () {
         return view('auth.password');
     })->name('check.password');
-    Route::post('/passwordrecover', [UtilisateurController::class, 'passwordrecover'])->name('passwordrecover');
+    Route::post('/passwordrecover', [UserController::class, 'passwordrecover'])->name('passwordrecover');
 
     Route::get('/completer-info', [RoleController::class, 'create'])->name('completer_info');
     Route::post('/informations', [RoleController::class, 'store'])->name('user.info');
 
-    Route::get('/deconnexion', [UtilisateurController::class, 'logout'])->name('logout');
+    Route::get('/deconnexion', [UserController::class, 'logout'])->name('logout');
 
 });
