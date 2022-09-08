@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('series', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_serie');
+            $table->string('nom_serie')->unique();
             $table->timestamps();
         });
     }

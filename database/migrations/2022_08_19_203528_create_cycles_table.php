@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('cycles', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_cycle');
+            $table->string('nom_cycle')->unique(); // Nom sans accent pour les liens
+            $table->string('nom_cycle_accentue'); // Avec accent pour l'affichage sur les pages
             $table->timestamps();
         });
     }

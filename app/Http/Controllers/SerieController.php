@@ -95,4 +95,16 @@ class SerieController extends Controller
     {
         //
     }
+
+    public static function init() {
+        if (Serie::first()) {
+            return;
+        }
+
+        foreach(['A4', 'C4', 'D', 'G1', 'G2', 'G3', 'F1', 'F2', 'F3', 'F4'] as $value) {
+            $new_serie = new Serie();
+            $new_serie->nom_serie = $value;
+            $new_serie->save();
+        }
+    }
 }

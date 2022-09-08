@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\CycleController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\RessourceController;
@@ -21,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* ****INIT**** */
+
+Route::get('/app/initialise', [Controller::class, 'initializeApp'])->name('app.initialize');
 
 /* ****AUTH**** */
 

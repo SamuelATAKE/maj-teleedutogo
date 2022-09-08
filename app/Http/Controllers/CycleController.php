@@ -95,4 +95,21 @@ class CycleController extends Controller
     {
         //
     }
+
+    public static function init() {
+        if (Cycle::first()) {
+            return;
+        }
+
+        foreach([
+            'primaire' => 'primaire',
+            'college' => 'collège',
+            'lycee' => 'lycée',
+        ] as $key => $value) {
+            $new_cycle = new Cycle();
+            $new_cycle->nom_cycle = $key;
+            $new_cycle->nom_cycle_accentue = $value;
+            $new_cycle->save();
+        }
+    }
 }
