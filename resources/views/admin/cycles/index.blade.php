@@ -23,6 +23,7 @@ Cycles
             <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Nom accentué</th>
                     <th>Gestion</th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@ Cycles
                 @forelse ($cycles as $cycle)
                     <tr>
                         <td>{{$cycle->nom_cycle}}</td>
+                        <td>{{$cycle->nom_cycle_accentue}}</td>
                         <td class='actions_cel'>
                             <form action="" class="edit_button_form">
                                 <input type="hidden">

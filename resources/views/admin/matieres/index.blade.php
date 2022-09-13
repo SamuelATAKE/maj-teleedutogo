@@ -32,8 +32,8 @@ Matiere
                 @forelse ($matieres as $matiere)
                     <tr>
                         <td>{{$matiere->nom}}</td>
-                        <td>{{$matiere->cycle->nom_cycle}}</td>
-                        <td>{{$matiere->classe->nom}}</td>
+                        <td>{{$matiere->classe->cycle->nom_cycle}}</td>
+                        <td>{{$matiere->classe->fullName}}</td>
                         <td class='actions_cel'>
                             <form action="" class="edit_button_form">
                                 <input type="hidden">

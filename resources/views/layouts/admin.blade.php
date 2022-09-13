@@ -152,7 +152,7 @@ script : pour l'inclusion de scripts
                   <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Admin Admin</p>
+                  <p class="profile-name">{{Auth::user()->firstname." ".Auth::user()->lastname}}</p>
                   <p class="designation">Administrateur</p>
                 </div>
                 <!-- <div class="icon-container">

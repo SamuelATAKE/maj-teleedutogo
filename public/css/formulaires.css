@@ -54,7 +54,7 @@ label
 }
 input,select,textarea
 {
-	padding: 5px;
+	padding:0.5rem;
 	border: none;
 	background-color: #e6e5ea;
 	font-family: 'Lexend', sans-serif;
@@ -106,4 +106,9 @@ button.non-actif:hover
 	display:flex;
 	flex-direction : row ;
 	justify-content: space-around;
+}
+
+.error {
+    color: red;
+    margin: 0.5rem auto;
 }

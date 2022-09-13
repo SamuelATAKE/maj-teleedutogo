@@ -25,7 +25,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::get('/admin/series', [SerieController::class, 'index'])->name('admin.series');
 
     Route::get('/admin/series/nouveau', function() {
-        return view('grades.ajouter_serie');
+        return view('admin.series.ajouter_serie');
     })->name('serie.create');
 
     Route::post('/admin/serie/store', [SerieController::class, 'store'])->name('serie.add');
@@ -34,7 +34,7 @@ Route::middleware(['auth:admin'])->group(function() {
     Route::get('/admin/cycles', [CycleController::class, 'index'])->name('admin.cycles');
 
     Route::get('/admin/cycles/ajouter', function(){
-        return view('grades.ajouter_cycle');
+        return view('admin.cycles.ajouter_cycle');
     })->name('cycle.create');
 
     Route::post('/cycle/add', [CycleController::class, 'store'])->name('cycle.add');

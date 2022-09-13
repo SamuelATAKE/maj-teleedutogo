@@ -32,7 +32,7 @@ class ClasseController extends Controller
         //
         $cycles = Cycle::All();
         $series = Serie::All();
-        return view('grades.ajouter_classe', compact('cycles', 'series'));
+        return view('admin.classes.ajouter_classe', compact('cycles', 'series'));
     }
 
     /**
@@ -44,18 +44,33 @@ class ClasseController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
+        $inputs = request()->validate([
             'nom' => 'required',
+            'nom_accent' => 'required',
             'cycle' => 'required',
         ]);
 
+        $cycle = Cycle::find(request('cycle'));
+        $serie = Serie::find(request('serie'));
+
+        if($cycle == null) {
+            return back()->withInput(request()->input())->withErrors('Choisissez un cycle existant', 'cycle');
+        }
+
+        $class_exist = Classe::where('nom', strtolower(request('nom')))->first();
+        if($class_exist == null) {
+
+        } elseif ($class_exist->serie == $serie && $class_exist->cycle == $cycle) {
+            return back()->withInput($inputs)->withErrors('Cette classe existe déjà.');
+        }
+
         $classe  = new Classe;
 
-        $classe->nom = request('nom');
-        $classe->cycle_id = request('cycle');
-        $classe->serie_id = request('serie');
+        $classe->nom = strtolower(request('nom'));
+        $classe->nom_accentue = strtolower(request('nom_accent'));
+        $classe->cycle()->associate($cycle);
+        $classe->serie()->associate($serie);
         $classe->description = request('description');
-        // dd($classe);
         $classe->save();
 
         return redirect(route('admin.classes'));

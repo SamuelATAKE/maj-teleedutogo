@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->string('nom_accentue');
             $table->unsignedBigInteger('cycle_id');
-            $table->unsignedBigInteger('serie_id');
+            $table->unsignedBigInteger('serie_id')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
 

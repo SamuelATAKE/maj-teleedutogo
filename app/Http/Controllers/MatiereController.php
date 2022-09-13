@@ -31,7 +31,7 @@ class MatiereController extends Controller
     {
         //
         $classes = Classe::All();
-        return view('grades.ajouter_matiere', compact('classes'));
+        return view('admin.matieres.ajouter_matiere', compact('classes'));
     }
 
     /**
@@ -43,19 +43,28 @@ class MatiereController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate([
+        $inputs = request()->validate([
             'nom' => 'required',
+            'nom_accent' => 'required',
             'classe' => 'required',
         ]);
 
-        $classe = Classe::where('id', request('classe'))->first();
+        $classe = Classe::find(request('classe'));
+
+        if($classe == null) {
+            return back()->withInput($inputs)->withErrors('Cette classe n\'a pas été enregistrée');
+        }
+
+        $matiere_exist = Matiere::where('nom', strtolower(request('nom')))->first();
+
+        if($matiere_exist->classe == $classe) {
+            return back()->withInput($inputs)->withErrors('Cette matière existe déjà.');
+        }
 
         $matiere = new Matiere;
-
-        $matiere->nom = request('nom');
-        $matiere->classe_id = request('classe');
-        $matiere->cycle_id = $classe->cycle_id;
-        // dd($matiere);
+        $matiere->nom = strtolower(request('nom'));
+        $matiere->nom_accentue = strtolower(request('nom_accent'));
+        $matiere->classe()->associate($classe);
         $matiere->save();
 
         return redirect(route('admin.matieres'));

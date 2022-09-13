@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('matieres', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->string('nom_accentue');
             $table->unsignedBigInteger('classe_id');
-            $table->unsignedBigInteger('repetitorat_id');
             $table->timestamps();
 
             // $table->foreign('classe_id')->references('id')->on('classes');

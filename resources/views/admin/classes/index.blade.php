@@ -33,7 +33,7 @@ Classe
                     <tr>
                         <td>{{$classe->nom}}</td>
                         <td>{{$classe->cycle->nom_cycle}}</td>
-                        <td>@if($classe->serie) {{$classe->serie->nom}}@else @endif</td>
+                        <td>@if($classe->serie) {{$classe->serie->nom_serie}} @else @endif</td>
                         <td class='actions_cel'>
                                 <a href="{{route("classe.edit", $classe->id)}}">
                                     <button type='button' title="Modifier">
