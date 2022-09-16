@@ -20,8 +20,6 @@ return new class extends Migration
             $table->unsignedBigInteger('classe_id');
             $table->timestamps();
 
-            // $table->foreign('classe_id')->references('id')->on('classes');
-            // $table->foreign('cycle_id')->references('id')->on('cycles');
         });
     }
 

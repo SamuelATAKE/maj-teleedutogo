@@ -57,6 +57,8 @@ Route::middleware(['auth:admin'])->group(function() {
 
     Route::post('/matiere/add', [MatiereController::class, 'store'])->name('matiere.add');
 
+    Route::post('/admin/matiere/delete/{id}', [MatiereController::class, 'delete'])->name('admin.matiere.delete');
+
 });
 
 

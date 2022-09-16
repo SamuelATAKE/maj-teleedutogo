@@ -76,40 +76,22 @@ class ClasseController extends Controller
         return redirect(route('admin.classes'));
     }
 
-    public function getMatieres(String $cycle, String $id){
-        $classe = Classe::where('nom', $id)->first();
-        // dd($classe);
-        if($classe) {
-            $matieres = Matiere::where('classe_id', $classe->id)->get();
-            // dd($matieres);
-            session([
-                'choosed_class' => $classe
-            ]);
-            $cycle = Cycle::where('id', $classe->cycle->id)->first();
-            // dd($cycle);
-            if($classe->serie_id){
-                $serie = Serie::where('id', $classe->serie_id)->first();
-                session([
-                    'serie' => $serie
-                ]);
-            }
-
-            return view('parcourir.template_classe', compact('matieres', 'classe', 'cycle'));
-        }else {
-            return redirect(route('home'));
-        }
-
-    }
-
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Classe  $classe
      * @return \Illuminate\Http\Response
      */
-    public function show(Classe $classe)
+    public function show($nom_cycle, $fullname_classe)
     {
-        //
+        $cycle = Cycle::where('nom_cycle', $nom_cycle)->first();
+        $classe = $cycle->classes->where('fullName', $fullname_classe)->first();
+        if(!$classe) {
+            return view('errors.404');
+        }
+        // dd($classe->fullNameAccentue);
+        return view('parcourir.template_classe')
+            ->with('classe', $classe);
     }
 
     /**

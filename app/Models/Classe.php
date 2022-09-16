@@ -30,7 +30,19 @@ class Classe extends Model
     protected function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => $this->nom_accentue." ".($this->serie != null ? $this->serie->nom_serie : ''),
+            get: fn ($value) => $this->nom.($this->serie != null ? $this->serie->nom_serie : ''),
+        );
+    }
+
+    /**
+     * Get the classe full name (nom_accentué + serie).
+     *
+     * @return  \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    protected function fullNameAccentue(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $this->nom_accentue.($this->serie != null ? $this->serie->nom_serie : ''),
         );
     }
 }

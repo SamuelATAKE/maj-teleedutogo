@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classe;
 use App\Models\Cycle;
+use App\Models\Serie;
 use Illuminate\Http\Request;
 
 class CycleController extends Controller
@@ -51,15 +53,35 @@ class CycleController extends Controller
         return redirect(route('admin.cycles'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Cycle  $cycle
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cycle $cycle)
+
+    public function showPrimaire()
     {
-        //
+        $cycle = Cycle::where('nom_cycle', 'primaire')->first();
+        $classes = $cycle->classes;
+        return view('parcourir.primaire')
+            ->with('classes', $classes);
+    }
+
+    public function showCollege()
+    {
+        $cycle = Cycle::where('nom_cycle', 'college')->first();
+        $classes = $cycle->classes;
+        return view('parcourir.college')
+            ->with('classes', $classes);
+    }
+
+    public function showLycee()
+    {
+        $cycle = Cycle::where('nom_cycle', 'lycee')->first();
+        $series = Serie::all();
+        $classes_groupes = [];
+        foreach ($series as $serie) {
+            $classes = $cycle->classes->where('serie_id', $serie->id);
+            $classes_groupes[$serie->nom_serie] = $classes;
+        }
+
+        return view('parcourir.lycee')
+            ->with('classes_groupes', $classes_groupes);
     }
 
     /**

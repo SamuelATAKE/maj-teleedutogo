@@ -5,10 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Google-font -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=New+Tegomin&family=Lexend&family=RocknRoll+One&family=Kiwi+Maru&family=Caladea&family=B612+Mono&display=swap" rel="stylesheet">
+	{{-- <link rel="preconnect" href="https://fonts.gstatic.com"> --}}
+	{{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=New+Tegomin&family=Lexend&family=RocknRoll+One&family=Kiwi+Maru&family=Caladea&family=B612+Mono&display=swap" rel="stylesheet"> --}}
 	<!-- Icons -->
-	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	{{-- <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'> --}}
 	<!-- Ressources globales -->
 	<link rel="stylesheet" href="{{asset('css/css_global.css')}}">
 	<!-- Ressources liée à la page -->

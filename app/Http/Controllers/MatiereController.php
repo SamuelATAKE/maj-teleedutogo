@@ -87,6 +87,15 @@ class MatiereController extends Controller
         return view('parcourir.template_matiere', compact('ressources', 'matiere', 'classe'));
     }
 
+    public function delete($id) {
+        $matToDel = Matiere::find($id);
+        if (!$matToDel) {
+            return back()->withErrors('La matière à supprimer n\'existe pas');
+        }
+        $matToDel->delete();
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *

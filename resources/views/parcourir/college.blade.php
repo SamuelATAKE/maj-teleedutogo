@@ -15,36 +15,19 @@ Retouvez des cours et des exercices pour le collège
 @section('content')
     <section id="conteneur_principal" class="espace_college">
 		<div class="flex_column">
-			<p class="description">Choisissez la classe</p>
+			<p class="description"></p>
 			<div class="flex_row_wrap">
-				<div class="groupe_classe">
-					<a href="{{route('classe', ['college','Sixième'])}}" class="lien_cont_classe">
-						<h2 class="classe">Sixième</h2>
-						<hr>
-						<p class="description"></p>
-					</a>
-				</div>
-				<div class="groupe_classe">
-					<a href="{{route('classe', ['college','Cinquième'])}}" class="lien_cont_classe">
-						<h2 class="classe">Cinquième</h2>
-						<hr>
-						<p class="description"></p>
-					</a>
-				</div>
-				<div class="groupe_classe">
-					<a href="{{route('classe', ['college','Quatrième'])}}" class="lien_cont_classe">
-						<h2 class="classe">Quatrième</h2>
-						<hr>
-						<p class="description"></p>
-					</a>
-				</div>
-				<div class="groupe_classe">
-					<a href="{{route('classe', ['college','Troisième'])}}" class="lien_cont_classe">
-						<h2 class="classe">Troisième</h2>
-						<hr>
-						<p class="description"></p>
-					</a>
-				</div>
+                @foreach ($classes as $classe)
+                    <div class="groupe_classe">
+                        <a href="{{ route('classe', ['nom_cycle'=>'college', 'fullname_classe'=>$classe->fullName]) }}"
+                            class="lien_cont_classe"
+                        >
+                            <h2 class="classe">{{ucfirst($classe->nom_accentue)}}</h2>
+                            <hr>
+                            <p class="description"></p>
+                        </a>
+                    </div>
+                @endforeach
 			</div>
 		</div>
 	</section>

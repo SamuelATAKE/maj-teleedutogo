@@ -14,19 +14,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/primaire', function () {
-    return view('parcourir.primaire');
-})->name('primaire');
+Route::get('parcourir/primaire', [CycleController::class, 'showPrimaire'])->name('primaire');
 
-Route::get('/college', function () {
-    return view('parcourir.college');
-})->name('college');
+Route::get('parcourir/college', [CycleController::class, 'showCollege'])->name('college');
 
-Route::get('/lycee', function () {
-    return view('parcourir.lycee');
-})->name('lycee');
+Route::get('parcourir/lycee', [CycleController::class, 'showLycee'])->name('lycee');
 
-Route::get('parcourir/{cycle}/{id}', [ClasseController::class, 'getMatieres'])->name('classe');
+Route::get('parcourir/{nom_cycle}/{fullname_classe}', [ClasseController::class, 'show'])->name('classe');
 
 Route::get('parcourir/{cycle}/{classe}/{id}', [MatiereController::class, 'getRessources'])->name('matiere');
 

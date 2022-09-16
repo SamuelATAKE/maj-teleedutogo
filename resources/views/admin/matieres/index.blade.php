@@ -41,7 +41,9 @@ Matiere
                                     <img src="{{asset('images/edit_icon.png')}}" alt="">
                                 </button>
                             </form>
-                            <form action="" class="del_button_form">
+                            <form action="{{ route('admin.matiere.delete', ['id'=>$matiere->id]) }}" method="POST" class="del_button_form">
+                                @csrf
+                                @method('POST')
                                 <input type="hidden">
                                 <button type='submit' title="Supprimer">
                                     <img src="{{asset('images/del_icon.png')}}" alt="">

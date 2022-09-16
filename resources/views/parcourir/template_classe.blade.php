@@ -1,14 +1,11 @@
 @extends('layouts.little')
 
 @section('title')
->classe< | TELEEDUTOGO
+{{ucfirst($classe->fullNameAccentue)}} | TELEEDUTOGO
 @endsection
 
 @section('h1')
-{{$classe->nom}}
-{{-- @if(session('serie'))
-    {{session('serie')->nom_serie}}
-@endif  --}}
+{{ucfirst($classe->fullNameAccentue)}}
 @endsection
 
 @section('page_description')
@@ -18,22 +15,17 @@ N'arrêtez jamais d'apprendre!
 @section('content')
     <section class="general_container">
 		<section class="flex_row_wrap conteneur_matieres">
-            @foreach ($matieres as $matiere)
+            @foreach ($classe->matieres as $matiere)
                 <section class="bloc_matiere">
-                    <h2>{{$matiere->nom}}</h2>
+                    <h2>{{ucfirst($matiere->nom_accentue)}}</h2>
                     <p class="niveau">
-                        <span class="classe">{{$classe->nom}}</span>
-                        {{-- <span class="serie">
-                        @if(session('serie'))
-                            Série {{session('serie')->nom_serie}}
-                        @endif
-                     </span> --}}
+                        <span class="classe">{{ucfirst($classe->fullNameAccentue)}}</span>
                     </p>
                     <div class="contenu_matiere">
                         <!-- Partie cours -->
                         <p class="cours">
                             <img src="{{asset('images/icon_pour_cours.png')}}" alt="">
-                            <a href="{{route('matiere', [$cycle, $classe->nom, $matiere->nom])}}">Aller aux cours</a>
+                            <a href="">Aller aux cours</a>
                         </p>
                         <hr>
                         <!-- Partie exercices -->
