@@ -57,8 +57,10 @@ class MatiereController extends Controller
 
         $matiere_exist = Matiere::where('nom', strtolower(request('nom')))->first();
 
-        if($matiere_exist->classe == $classe) {
-            return back()->withInput($inputs)->withErrors('Cette matière existe déjà.');
+        if($matiere_exist) {
+            if ($matiere_exist->classe == $classe) {
+                return back()->withInput($inputs)->withErrors('Cette matière existe déjà.');
+            }
         }
 
         $matiere = new Matiere;

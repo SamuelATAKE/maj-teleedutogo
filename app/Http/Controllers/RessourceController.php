@@ -6,10 +6,18 @@ use App\Models\Classe;
 use App\Models\Cycle;
 use App\Models\Matiere;
 use App\Models\Ressource;
+use App\Services\DataServices\RessourceService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RessourceController extends Controller
 {
+
+    private $ressourceService;
+    public function __construct(RessourceService $resService) {
+        $this->ressourceService = $resService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +27,7 @@ class RessourceController extends Controller
     {
         //
         $ressources = Ressource::All();
-        return view('admin.liste_ressources', compact('ressources'));
+        return view('admin.ressources.liste_ressources', compact('ressources'));
     }
 
     /**
@@ -29,20 +37,14 @@ class RessourceController extends Controller
      */
     public function create()
     {
-        //
-        $cycles = Cycle::All();
-        $classes = Classe::All();
-        $matieres = Matiere::All();
-
-        $nom_classe[] = null;
-        foreach($matieres as $m){
-            $classe = Classe::where('id', $m->classe_id)->first();
-            $nom_classe[] = $classe->nom;
+        $matieres = DB::table('matieres')->orderBy('nom')->orderBy('classe_id')->get();
+        $classesFullAccentName = [];
+        foreach(Classe::all() as $classe) {
+            $classesFullAccentName[$classe->id] = $classe->fullNameAccentue;
         }
-
-        // dd($nom_classe);
-
-        return view('admin.ajout_ressource', compact('classes', 'cycles', 'matieres', 'nom_classe'));
+        // dd($classesFullAccentName);
+        // dd($matieres);
+        return view('admin.ressources.ajout_ressource', compact('matieres','classesFullAccentName'));
     }
 
     /**
@@ -53,13 +55,8 @@ class RessourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        request()->validate([
-            'ressource' => 'required',
-            // 'contributeur' => 'required',
-            'matiere' => 'required',
-            'type' => 'required',
-        ]);
+        dd($request->input());
+        $this->ressourceService->validateStoreRequest($request);
 
         if ($request->file('ressource')) {
             $imagePath = $request->file('ressource');
@@ -67,22 +64,9 @@ class RessourceController extends Controller
 
             $path = $request->file('ressource')->storeAs('ressource', $imageName, 'public');
 
-            // dd($path);
         }
 
-        $ressource = new Ressource;
-
-        $ressource->nom_ressource = $path;
-        // $ressource->contributeur = request('contributeur');
-        $ressource->contributeur_id = 1;
-        $ressource->matiere_id = request('matiere');
-        $ressource->type = request('type');
-        $ressource->etablissement = request('etablissement');
-        $ressource->annee = request('annee');
-        $ressource->chapitre = request('chapitre');
-        $ressource->description = request('description');
-        // dd($ressource);
-        $ressource->save();
+        $ressource = $this->ressourceService->store($request->input());
 
         return back();
     }

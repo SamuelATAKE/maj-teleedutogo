@@ -23,6 +23,7 @@ Classe
             <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Nom Accentué</th>
                     <th>Cycle</th>
                     <th>Serie</th>
                     <th>Gestion</th>
@@ -32,6 +33,7 @@ Classe
                 @forelse ($classes as $classe)
                     <tr>
                         <td>{{$classe->nom}}</td>
+                        <td>{{$classe->nom_accentue}}</td>
                         <td>{{$classe->cycle->nom_cycle}}</td>
                         <td>@if($classe->serie) {{$classe->serie->nom_serie}} @else @endif</td>
                         <td class='actions_cel'>

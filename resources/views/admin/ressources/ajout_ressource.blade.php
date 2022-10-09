@@ -23,47 +23,12 @@ Ressources > Ajouter
             <input type="file" name="ressource" multiple>
         </div>
         <div class="case_input">
-            <label for="cycle">Cycle</label>
-            <select name="cycle" id="cycle">
-                @foreach ($cycles as $cycle)
-                   <option value="{{$cycle->id}}">{{$cycle->nom_cycle}}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="case_input">
-            <label for='classe'>Classe</label>
-            <select name="classe" id="classe">
-                @foreach ($classes as $classe)
-                    <option value="{{$classe->id}}">{{$classe->nom}}</option>
-                @endforeach
-
-            </select>
-        </div>
-        <div class="case_input">
             <label for="matiere">Matière</label>
-            <select name="matiere" id="matiere" required="">
+            <select name="matiere" id="matiere" >
                 <option value="" selected></option>
-                <optgroup label="Lycée">
-                    @foreach ($matieres as $matiere)
-                        @if ($matiere->cycle_id == 3)
-                          <option value="{{$matiere->id}}">{{$matiere->nom}} ({{$nom_classe[$matiere->id]}})</option>
-                        @endif
-                    @endforeach
-                </optgroup>
-                <optgroup label="Collège">
-                    @foreach ($matieres as $matiere)
-                        @if ($matiere->cycle_id == 2)
-                            <option value="{{$matiere->id}}">{{$matiere->nom}}  ({{$nom_classe[$matiere->id]}})</option>
-                        @endif
-                    @endforeach
-                </optgroup>
-                <optgroup label="Primaire">
-                    @foreach ($matieres as $matiere)
-                        @if ($matiere->cycle_id == 1)
-                            <option value="{{$matiere->id}}">{{$matiere->nom}}  ({{$nom_classe[$matiere->id]}})</option>
-                        @endif
-                    @endforeach
-                </optgroup>
+                @foreach ($matieres as $matiere)
+                    <option value="{{$matiere->id}}">{{$matiere->nom}} ({{$classesFullAccentName[$matiere->classe_id]}})</option>
+                @endforeach
             </select>
         </div>
         <div class="case_input">

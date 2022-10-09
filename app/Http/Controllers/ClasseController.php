@@ -58,10 +58,11 @@ class ClasseController extends Controller
         }
 
         $class_exist = Classe::where('nom', strtolower(request('nom')))->first();
-        if($class_exist == null) {
 
-        } elseif ($class_exist->serie == $serie && $class_exist->cycle == $cycle) {
-            return back()->withInput($inputs)->withErrors('Cette classe existe déjà.');
+        if($class_exist != null) {
+            if ($class_exist->serie == $serie && $class_exist->cycle == $cycle) {
+                return back()->withInput($inputs)->withErrors('Cette classe existe déjà.');
+            }
         }
 
         $classe  = new Classe;
@@ -119,16 +120,25 @@ class ClasseController extends Controller
     public function update(Request $request, int $id)
     {
         //
-        request()->validate([
+        $inputs = request()->validate([
             'nom' => 'required',
+            'nom_accent' => 'required',
             'cycle' => 'required',
         ]);
         $classe = Classe::where('id', $id)->first();
-        //dd($classe);
 
-        $classe->nom = request('nom');
-        $classe->cycle_id = request('cycle');
-        $classe->serie_id = request('serie');
+        $cycle = Cycle::find(request('cycle'));
+        $serie = Serie::find(request('serie'));
+
+        if($cycle == null) {
+            return back()->withInput(request()->input())->withErrors('Choisissez un cycle existant', 'cycle');
+        }
+
+
+        $classe->nom = strtolower(request('nom'));
+        $classe->nom_accentue = strtolower(request('nom_accent'));
+        $classe->cycle()->associate($cycle);
+        $classe->serie()->associate($serie);
         $classe->description = request('description');
         // dd($classe);
         $classe->save();

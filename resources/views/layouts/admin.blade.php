@@ -177,7 +177,7 @@ script : pour l'inclusion de scripts
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{route('ressources.add')}}" class="nav-link">
+              <a href="{{route('ressource.new')}}" class="nav-link">
                 <span class="menu-title">Ajouter une ressource</span>
                 <i class="icon-plus menu-icon"></i>
               </a>

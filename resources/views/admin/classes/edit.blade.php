@@ -23,27 +23,34 @@
                 <label for="chapitre">Nom</label>
                 <input type="text" id="chapitre" name="nom" placeholder="{{$classe->nom}}" value="{{$classe->nom}}">
             </div>
+            <div class="case_input ">
+                <label for="nom_accent">Nom accentué</label>
+                <input type="text" id="nom_accent" name="nom_accent" required value="{{$classe->nom_accentue}}" placeholder="{{$classe->nom_accentue}}"  />
+            </div>
             <div class="case_input">
                 <label for="type">Cycle</label>
-                <select name="cycle" id="type" required="">
-                    <option value="{{$classe->cycle->id}}" selected>{{$classe->cycle->nom}}</option>
+                <select name="cycle" id="cycle" required="">
+                    <option value=" "></option>
                     @foreach ($cycles as $cycle)
-                        <option value="{{$cycle->id}}">{{$cycle->nom_cycle}}</option>
+                        <option value="{{$cycle->id}}"
+                            @if ($cycle->id == $classe->cycle->id)
+                                selected
+                            @endif
+                        >{{Str::ucfirst($cycle->nom_cycle_accentue)}}</option>
                     @endforeach
 
                 </select>
             </div>
             <div class="case_input">
                 <label for="examen">Série</label>
-                <select name="serie" id="examen">
-                    @if($classe->serie)
-                        <option value="{{$classe->serie->id}}">{{$classe->serie->nom}}</option>
-                    @else
-                        <option value="" selected></option>
-                    @endif
-
+                <select name="serie" id="serie">
+                    <option value=" "></option>
                     @foreach ($series as $serie)
-                        <option value="{{$serie->id}}">{{$serie->nom_serie}}</option>
+                        <option value="{{$serie->id}}"
+                            @if ($classe->serie && $serie->id == $classe->serie->id)
+                                selected
+                            @endif
+                        >{{$serie->nom_serie}}</option>
                     @endforeach
                 </select>
             </div>

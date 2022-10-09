@@ -16,7 +16,7 @@ Route::middleware(['auth:admin'])->group(function() {
     })->name('admin.index');
 
     // Admin - gestion ressources
-    Route::get('/admin/ressources/nouveau', [RessourceController::class, 'create'])->name('ressources.add');
+    Route::get('/admin/ressources/nouveau', [RessourceController::class, 'create'])->name('ressource.new');
 
     Route::get('/admin/ressources', [RessourceController::class, 'index'])->name('ressources.index');
 
