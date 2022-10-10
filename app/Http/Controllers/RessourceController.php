@@ -14,6 +14,7 @@ class RessourceController extends Controller
 {
 
     private $ressourceService;
+
     public function __construct(RessourceService $resService) {
         $this->ressourceService = $resService;
     }
@@ -55,19 +56,12 @@ class RessourceController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->input());
+        // dd($request->input());
         $this->ressourceService->validateStoreRequest($request);
-
-        if ($request->file('ressource')) {
-            $imagePath = $request->file('ressource');
-            $imageName = $imagePath->getClientOriginalName();
-
-            $path = $request->file('ressource')->storeAs('ressource', $imageName, 'public');
-
-        }
-
-        $ressource = $this->ressourceService->store($request->input());
-
+        $files = [];
+        $files['ressource'] = $request->file('ressource');
+        $inputArray = $request->input();
+        $ressource = $this->ressourceService->store($inputArray, $files);
         return back();
     }
 
