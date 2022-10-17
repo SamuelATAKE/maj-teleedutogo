@@ -6,6 +6,19 @@
 	box-sizing: border-box;/*Calcul des dimentions incluant les bordures*/
 }
 
+:root {
+    --light-cornflower-blue: #8ecae6ff;
+    --blue-green: #219ebcff;
+    --prussian-blue: #023047ff;
+    --selective-yellow: #ffb703ff;
+    --tangerine: #fb8500ff;
+    --gray-blue: #8ecae6ff;
+    --light-blue: #219ebcff;
+    --main-blue: #023047ff;
+    --main-yellow: #ffb703ff;
+    --main-orange: #fb8500ff;
+}
+
 html
 {
 	font-size:100%;/*Pour unifier les unités comme rem*/
@@ -22,7 +35,7 @@ body
 	min-height: 100vh;
 }
 body.admin_page_body { /*Pour la page d'admin*/
-	padding: 0; 
+	padding: 0;
 	display: initial;
 }
 header {
@@ -30,6 +43,7 @@ header {
 }
 /*----------------- GLOBAL -----------------*/
 /*--- Ici, des classes d'éléments qui seront présents partout ---*/
+
 h1
 {
 	font-family:'Kiwi Maru', serif;
@@ -105,6 +119,17 @@ a:link
 }
 .not_display {
 	display: none !important;
+}
+
+.main-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--main-blue);
+    color: white;
+}
+.main-button:hover {
+    box-shadow: 0 0 0.5rem 2px var(--light-blue);
 }
 
 @media screen and (max-width:1000px)

@@ -21,7 +21,7 @@ Ressources
         <table class="ress_table">
             <thead>
                 <tr>
-                    <th>Nom</th>
+                    <th>Classe</th>
                     <th>Type</th>
                     <th>Matière</th>
                     <th>Contributeur</th>
@@ -34,12 +34,12 @@ Ressources
             <tbody>
                 @forelse ($ressources as $ressource)
                     <tr>
-                        <td>{{$ressource->nom}}</td>
+                        <td>{{$ressource->matiere->classe->fullNameAccentue}}</td>
                         <td>{{$ressource->type}}</td>
-                        <td>{{$ressource->matiere}}</td>
+                        <td>{{$ressource->matiere->nom_accentue}}</td>
                         <td>{{$ressource->contributeur}}</td>
-                        <td>{{$ressouce->annee}}</td>
-                        <td>{{$ressouce->chapitre}}</td>
+                        <td>{{$ressource->annee}}</td>
+                        <td>{{$ressource->chapitre}}</td>
                         <td>{{$ressource->etablissement}} </td>
                         <td class='actions_cel'>
                             <form action="" class="edit_button_form">

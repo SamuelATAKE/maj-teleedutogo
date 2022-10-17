@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class RessourceService implements DataServiceInterface {
 
     private  $matiereService;
-    public function __construct(MatiereService $matServ)
-    {
+    public function __construct(MatiereService $matServ) {
         $this->matiereService = $matServ;
     }
 
@@ -27,18 +26,22 @@ class RessourceService implements DataServiceInterface {
         if(!$this->matiereService->get($inputs['matiere'])) {
             return back()->withInput($inputs)->withErrors(['matiere'=>'Matiere invalide']);
         }
-
+        if($inputs['type'] == 'cours') {
+            $request->validate(['chapitre' => 'required' ]);
+        }
         if($inputs['type'] == 'examen') {
             $request->validate(['examen' => 'required|in:cepd,bepc,probatoire,bac' ]);
+        }
+        if($inputs['type'] == 'concours') {
+            $request->validate(['concours' => 'required' ]);
         }
 
     }
 
-    public function store($inputs, $files=[])
-    {
+    public function store($inputs, $files=[]) {
         $newRessource = new Ressource();
         $resMatiere = $this->matiereService->get($inputs['matiere']);
-        $resName = $inputs['type'].'_'.$resMatiere->classe->nom.'_'.$resMatiere->nom.'_'.now()->format('Y-M-d_His');
+        $resName = $inputs['type'].'_'.$resMatiere->classe->nom.'_'.$resMatiere->nom.'_'.now()->format('Y-M-d_His').'.'. $files['ressource']->extension();
         // dd($resName);
         $path = $files['ressource']->storeAs(
             'ressource/'.$inputs['type'],
@@ -48,17 +51,19 @@ class RessourceService implements DataServiceInterface {
         $newRessource->nom_ressource = $path;
         $newRessource->type = $inputs['type'];
         $newRessource->examen = $inputs['examen'];
+        $newRessource->concours = $inputs['concours'];
         $newRessource->etablissement = $inputs['etablissement'];
         $newRessource->annee = $inputs['annee'];
         $newRessource->chapitre = $inputs['chapitre'];
         $newRessource->description = $inputs['description'];
+        $newRessource->contributor_name = $inputs['contributor_name'];
+        $newRessource->contributor_contact = $inputs['contributor_contact'];
         $newRessource->matiere()->associate($resMatiere);
         // dd($newRessource);
         $newRessource->save();
     }
 
-    public function get($id)
-    {
-
+    public function get($id) {
+        return Ressource::find($id);
     }
 }

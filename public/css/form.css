@@ -1,0 +1,77 @@
+/** GENERAL COMPONENTS*/
+.errors {
+    padding: 0.5rem;
+    color: red;
+}
+
+/** FORM-S1 */
+
+.form-s1.form-wrapper {
+    margin-top: 4rem;
+	margin-bottom: 4rem;
+	width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-s1 .input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: stretch;
+    margin-bottom: 1rem;
+}
+.form-s1 .input-part {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: stretch;
+}
+
+.form-s1 label {
+    padding: 0.5rem;
+    margin: 0;
+    font-weight: bold
+}
+
+.form-s1 input, .form-s1 select, .form-s1 textarea {
+    display: block;
+    border: 2px solid gray;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+.form-s1 input:focus, .form-s1 select:focus, .form-s1 textarea:focus {
+    display: block;
+    border: 2px solid var(--main-blue);
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+}
+
+.form-s1 .instructions .description {
+    color: rgb(100, 113, 116);
+    text-align: left;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.form-s1 .instructions .errors {
+    color: red;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.form-s1 .form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.form-s1 .form-buttons button {
+    min-width: 170px;
+    text-align: center;
+}
