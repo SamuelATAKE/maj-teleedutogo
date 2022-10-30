@@ -5,13 +5,6 @@ style : pour les css
 content_title : pour le titre du contenu de la page (similaire à title mais sera dans la top bar de la page)
 content : pour le contenu de la page
 script : pour l'inclusion de scripts
-
-  ----Aide à l'implémentation----
-@section('title')@endsection
-@section('style')@endsection
-@section('content_title')@endsection
-@section('content')@endsection
-@section('script')@endsection
 -->
 
 <!DOCTYPE html>
@@ -165,47 +158,41 @@ script : pour l'inclusion de scripts
               <span class="nav-link">Dashboard</span>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('admin.index')}}">
-                <span class="menu-title">Dashboard</span>
-                <i class="icon-screen-desktop menu-icon"></i>
-              </a>
+                <a class="nav-link" href="{{route('admin.index')}}">
+                    <span class="menu-title">Dashboard</span>
+                    <i class="icon-screen-desktop menu-icon"></i>
+                </a>
             </li>
-            <li class="nav-item nav-category"><span class="nav-link">Gestion des ressources</span></li>
+
+            {{-- Section Ressources --}}
+            <li class="nav-item nav-category"><span class="nav-link">Gestion Ressources</span></li>
+            <li class="nav-item">
+                <a href="{{route('admin.cycles')}}" class="nav-link">
+                    <span class="menu-title">Cycles</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.series')}}" class="nav-link">
+                    <span class="menu-title">Séries</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.classes')}}" class="nav-link">
+                    <span class="menu-title">Classes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin.matieres')}}" class="nav-link">
+                    <span class="menu-title">Matières</span>
+                </a>
+            </li>
             <li class="nav-item">
               <a href="{{route('ressources.index')}}" class="nav-link">
-                <span class="menu-title">Liste des ressources</span>
+                <span class="menu-title">Ressources</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="{{route('ressource.new')}}" class="nav-link">
-                <span class="menu-title">Ajouter une ressource</span>
-                <i class="icon-plus menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <span class="menu-title">Retirer une ressource</span>
-                <i class="icon-minus menu-icon danger"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <span class="menu-title">Modifier une ressource</span>
-                <i class="icon-pencil menu-icon danger"></i>
-              </a>
-            </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">deroulant</span>
-                <i class="icon-plus menu-icon"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li> -->
+
+            {{-- Section Utilisateurs --}}
             <li class="nav-item nav-category"><span class="nav-link">Activités utilisateurs</span></li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#users-bring" aria-expanded="false" aria-controls="ui-basic">
@@ -242,27 +229,7 @@ script : pour l'inclusion de scripts
                 </ul>
               </div>
             </li>
-            <li class="nav-item nav-category"><span class="nav-link">Gestion entités</span></li>
-            <li class="nav-item">
-                <a href="{{route('admin.cycles')}}" class="nav-link">
-                    <span class="menu-title">Cycles</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('admin.series')}}" class="nav-link">
-                    <span class="menu-title">Séries</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('admin.classes')}}" class="nav-link">
-                    <span class="menu-title">Classes</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('admin.matieres')}}" class="nav-link">
-                    <span class="menu-title">Matières</span>
-                </a>
-            </li>
+
 
           </ul>
         </nav>

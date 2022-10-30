@@ -3,7 +3,9 @@
 namespace App\Services\DataServices;
 
 interface DataServiceInterface {
+    public function init();
     public function store($inputs, $files=[]);
-    public function get($id);
+    public function find($id);
+    public function all($constrains=[]);
 }
 

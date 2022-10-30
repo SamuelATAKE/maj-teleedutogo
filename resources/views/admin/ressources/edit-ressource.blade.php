@@ -2,7 +2,7 @@
 
 
 @section('title')
-Ajout de ressource
+Modifier de une ressource
 @endsection
 
 @section('style')
@@ -10,12 +10,12 @@ Ajout de ressource
 @endsection
 
 @section('content_title')
-Ressources > Ajouter
+Ressources > Modifier
 @endsection
 
 @section('content')
 <div class="form-wrapper form-s1 ">
-    <form method="POST" action="{{route('ressource.add')}}" enctype="multipart/form-data">
+    <form method="POST" action="{{route('ressource.update')}}" enctype="multipart/form-data">
         @csrf
         @method('post')
         <div class="input-group">
@@ -24,7 +24,10 @@ Ressources > Ajouter
                 <input type="file" name="ressource" id="ressource">
             </div>
             <div class="instructions">
-                <p class="description"></p>
+                <p class="description">
+                    Sélectionnez un fichier si vous souhaitez remplacer le précédent
+                    <a href="">Téléchargez le ficher précédent</a>
+                </p>
                 <p class="errors">
                     @error('ressource')
                         {{$message}}
@@ -36,9 +39,12 @@ Ressources > Ajouter
             <div class="input-part">
                 <label for="matiere">Matière</label>
                 <select name="matiere" id="matiere" >
-                    <option value="" selected></option>
                     @foreach ($matieres as $matiere)
-                        <option value="{{$matiere->id}}">{{$matiere->nom}} ({{$matiere->classe->fullNameAccentue}})</option>
+                        <option value="{{$matiere->id}}"
+                            @if ($matiere->id == $ressource->matiere->id)
+                                selected
+                            @endif
+                        >{{$matiere->nom}} ({{$classesFullAccentName[$matiere->classe_id]}})</option>
                     @endforeach
                 </select>
             </div>
@@ -54,12 +60,21 @@ Ressources > Ajouter
             <div class="input-part">
                 <label for="type">Type de la ressource</label>
                 <select name="type" id="type" >
-                    <option value="" selected></option>
-                    <option value="cours">Cours ou résumé de cours</option>
-                    <option value="examen">Examen Nationnal(CEPD,BEPC...)</option>
-                    <option value="epreuve">Epreuve d'une école</option>
-                    <option value="concours">Epreuve d'un concours</option>
-                    <option value="exercice">Exercice</option>
+                    <option value="cours"
+                        @if ($ressource->type == 'cours') selected @endif
+                    >Cours ou résumé de cours</option>
+                    <option value="examen"
+                        @if ($ressource->type == 'examen') selected @endif
+                    >Examen Nationnal(CEPD,BEPC...)</option>
+                    <option value="epreuve"
+                        @if ($ressource->type == 'epreuve') selected @endif
+                    >Epreuve d'une école</option>
+                    <option value="concours"
+                        @if ($ressource->type == 'concours') selected @endif
+                    >Epreuve d'un concours</option>
+                    <option value="exercice"
+                        @if ($ressource->type == 'exercice') selected @endif
+                    >Exercice</option>
                 </select>
             </div>
             <div class="instructions">
@@ -74,8 +89,9 @@ Ressources > Ajouter
             <div class="input-part input_examen">
                 <label for="examen">Examen</label>
                 <select name="examen" id="examen">
-                    <option value=""></option>
-                    <option value="cepd">CEPD</option>
+                    <option value="cepd"
+                        @if ($ressource->examen == 'cours') selected @endif
+                    >CEPD</option>
                     <option value="bepc">BEPC</option>
                     <option value="probatoire">PROBATOIRE</option>
                     <option value="bac">BAC</option>

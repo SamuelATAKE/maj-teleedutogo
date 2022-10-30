@@ -6,9 +6,16 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Services\DataServices\AdminService;
 
 class AdminController extends Controller
 {
+    private $adminService;
+
+    public function __construct(AdminService $adminServ)
+    {
+        $this->adminService = $adminServ;
+    }
 
     /**
      * Display a listing of the resource.
@@ -27,7 +34,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $this->first_login();
+        $this->adminService->init();
         return view('auth.adminlogin');
     }
 
@@ -109,20 +116,4 @@ class AdminController extends Controller
         //
     }
 
-    /**
-     *  Called to create the base admin on the first login
-     */
-    private function first_login() {
-        $first_admin = Admin::first();
-        if ($first_admin) {
-            return $first_admin;
-        }
-        $new_admin = new Admin();
-        $new_admin->firstname = 'admin';
-        $new_admin->lastname = 'DEFAULT';
-        $new_admin->email = 'defaultedu@gmail.com';
-        $new_admin->password = Hash::make('@TeleEduTogo2022');
-        $new_admin->save();
-        return $new_admin;
-    }
 }

@@ -18,6 +18,7 @@ Ressources
 <section id="ress_list_container">
     <h1>Liste des ressources</h1>
     <div class="ress_table_container">
+        <a href="{{route('ressource.new')}}"><button class="btn btn-primary">Ajouter une ressource</button></a>
         <table class="ress_table">
             <thead>
                 <tr>
@@ -42,7 +43,7 @@ Ressources
                         <td>{{$ressource->chapitre}}</td>
                         <td>{{$ressource->etablissement}} </td>
                         <td class='actions_cel'>
-                            <form action="" class="edit_button_form">
+                            <form action="{{ route('ressource.edit', ['id'=>$ressource->id]) }}" class="edit_button_form">
                                 <input type="hidden">
                                 <button type='submit' title="Modifier">
                                     <img src="{{asset('images/edit_icon.png')}}" alt="">

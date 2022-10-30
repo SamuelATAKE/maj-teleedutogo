@@ -15,12 +15,14 @@ Route::middleware(['auth:admin'])->group(function() {
         return view('admin.index');
     })->name('admin.index');
 
-    // Admin - gestion ressources
-    Route::get('/admin/ressources/nouveau', [RessourceController::class, 'create'])->name('ressource.new');
-
+    // Ressources
     Route::get('/admin/ressources', [RessourceController::class, 'index'])->name('ressources.index');
-
+    Route::get('/admin/ressource/nouveau', [RessourceController::class, 'create'])->name('ressource.new');
     Route::post('/admin/ressource/store', [RessourceController::class, 'store'])->name('ressource.add');
+    Route::get('/admin/ressource/modifier/{id}', [RessourceController::class, 'edit'])->name('ressource.edit');
+    Route::get('/admin/ressource/maj', [RessourceController::class, 'update'])->name('ressource.update');
+
+
     // Séries
     Route::get('/admin/series', [SerieController::class, 'index'])->name('admin.series');
 

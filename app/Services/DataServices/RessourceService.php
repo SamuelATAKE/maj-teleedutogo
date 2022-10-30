@@ -12,6 +12,10 @@ class RessourceService implements DataServiceInterface {
         $this->matiereService = $matServ;
     }
 
+    public function init() {
+
+    }
+
     public function validateStoreRequest(Request $request) {
         $inputs = $request->validate([
             'ressource' => 'required',
@@ -23,7 +27,7 @@ class RessourceService implements DataServiceInterface {
             return back()->withInput($inputs)->withErrors(['ressource'=>'Veillez sélectionner un fichier']);
         }
         // dd($inputs['matiere']);
-        if(!$this->matiereService->get($inputs['matiere'])) {
+        if(!$this->matiereService->find($inputs['matiere'])) {
             return back()->withInput($inputs)->withErrors(['matiere'=>'Matiere invalide']);
         }
         if($inputs['type'] == 'cours') {
@@ -40,7 +44,7 @@ class RessourceService implements DataServiceInterface {
 
     public function store($inputs, $files=[]) {
         $newRessource = new Ressource();
-        $resMatiere = $this->matiereService->get($inputs['matiere']);
+        $resMatiere = $this->matiereService->find($inputs['matiere']);
         $resName = $inputs['type'].'_'.$resMatiere->classe->nom.'_'.$resMatiere->nom.'_'.now()->format('Y-M-d_His').'.'. $files['ressource']->extension();
         // dd($resName);
         $path = $files['ressource']->storeAs(
@@ -63,7 +67,11 @@ class RessourceService implements DataServiceInterface {
         $newRessource->save();
     }
 
-    public function get($id) {
+    public function find($id) {
         return Ressource::find($id);
+    }
+
+    public function all($constrains=[]) {
+        
     }
 }

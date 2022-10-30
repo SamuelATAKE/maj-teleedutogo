@@ -9,11 +9,19 @@ class Service implements DataServiceInterface {
 
     }
 
-    public function store($inputs) {
+    public function init() {
 
     }
 
-    public function get($id) {
+    public function store($inputs, $files=[]) {
+
+    }
+
+    public function find($id) {
+
+    }
+
+    public function all($constrains=[]) {
 
     }
 }

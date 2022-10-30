@@ -6,6 +6,8 @@ use App\Models\Classe;
 use App\Models\Cycle;
 use App\Models\Matiere;
 use App\Models\Ressource;
+use App\Services\DataServices\DataMetamorpherService;
+use App\Services\DataServices\MatiereService;
 use App\Services\DataServices\RessourceService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,9 +16,13 @@ class RessourceController extends Controller
 {
 
     private $ressourceService;
+    private $matiereService;
+    private $dataMetamorpherService;
 
-    public function __construct(RessourceService $resService) {
+    public function __construct(RessourceService $resService, MatiereService $matServ, DataMetamorpherService $metaMor) {
         $this->ressourceService = $resService;
+        $this->matiereService = $matServ;
+        $this->dataMetamorpherService = $metaMor;
     }
 
     /**
@@ -38,14 +44,12 @@ class RessourceController extends Controller
      */
     public function create()
     {
-        $matieres = DB::table('matieres')->orderBy('nom')->orderBy('classe_id')->get();
-        $classesFullAccentName = [];
-        foreach(Classe::all() as $classe) {
-            $classesFullAccentName[$classe->id] = $classe->fullNameAccentue;
-        }
-        // dd($classesFullAccentName);
-        // dd($matieres);
-        return view('admin.ressources.ajout_ressource', compact('matieres','classesFullAccentName'));
+        $matieres = $this->matiereService->all();
+        $classSortCallback = function ($mat) {
+            return $mat->classe->id;
+        };
+        $matieres = $this->dataMetamorpherService->sortDataBy($matieres, ['nom', $classSortCallback]);
+        return view('admin.ressources.ajout_ressource', compact('matieres'));
     }
 
     /**
@@ -110,9 +114,17 @@ class RessourceController extends Controller
      * @param  \App\Models\Ressource  $ressource
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ressource $ressource)
+    public function edit($id)
     {
-        //
+        $matieres = $this->matiereService->all();
+        $classSortCallback = function ($mat) {
+            return $mat->classe->id;
+        };
+        $matieres = $this->dataMetamorpherService->sortDataBy($matieres, ['nom', $classSortCallback]);
+        $ressource = $this->ressourceService->find($id);
+        return view('admin.ressources.edit-ressource')
+            ->with('ressource', $ressource)
+            ->with('matieres', $matieres);
     }
 
     /**
